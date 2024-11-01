@@ -1,10 +1,10 @@
 // steps.js
-import { spec as _spec } from 'pactum';
-import { Given, When, Then, Before } from '@cucumber/cucumber';
+const pactum = require('pactum');
+const { Given, When, Then, Before } = require('@cucumber/cucumber');
 
-let spec = _spec();
+let spec = pactum.spec();
 
-Before(() => { spec = _spec(); });
+Before(() => { spec = pactum.spec(); });
 
 Given('I make a GET request to {string}', function (url) {
   spec.get(url);
