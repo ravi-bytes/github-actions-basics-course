@@ -5,7 +5,7 @@ on:
 
 jobs:
   print-hello-world:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest # run on latest ubuntu
 
     steps:
       - name: Say hello
