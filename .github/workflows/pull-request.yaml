@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: 'npm'
 
       # Install Yarn
       - name: Install Yarn
@@ -27,6 +28,14 @@ jobs:
       # Install dependencies/libraries
       - name: Install Dependencies
         run: yarn install --frozen-lockfile
+
+      # Run linting
+      - name: Run linting
+        run: yarn lint
+
+      # Compile the code
+      - name: Build project
+        run: yarn build
 
       # Run tests
       - name: Run Tests
