@@ -1,0 +1,33 @@
+name: PR Example
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pull-request:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: typescript-project
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Setup NodeJs
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      # Install Yarn
+      - name: Install Yarn
+        run: npm install --global yarn
+
+      # Install dependencies/libraries
+      - name: Install Dependencies
+        run: yarn install --frozen-lockfile
+
+      # Run tests
+      - name: Run Tests
+        run: yarn test
