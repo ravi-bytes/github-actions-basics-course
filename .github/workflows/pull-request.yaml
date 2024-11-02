@@ -2,6 +2,11 @@ name: PR Example
 
 on:
   workflow_dispatch:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - typescript-project/**
 
 jobs:
   pull-request:
